@@ -23,4 +23,18 @@ public class SorveteController {
 
         return sorveteRepository.save(sorvete);
     }
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable Long id) {
+        sorveteRepository.deleteById(id);
+    }
+    @PutMapping("/{id}")
+    public Sorvete atualizar(@PathVariable Long id, @RequestBody Sorvete sorveteAtualizado) {
+        return sorveteRepository.findById(id)
+                .map(sorvete -> {
+                    sorvete.setSaborSorvete(sorveteAtualizado.getSaborSorvete());
+                    sorvete.setMarcaSorvete(sorveteAtualizado.getMarcaSorvete());
+                    sorvete.setValorSorvete(sorveteAtualizado.getValorSorvete());
+                    return sorveteRepository.save(sorvete);
+                }).orElseThrow(() -> new RuntimeException("Sorvete não encontrado!"));
+    }
 }
