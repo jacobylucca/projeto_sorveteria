@@ -33,8 +33,10 @@ public class SorveteController {
                 .map(sorvete -> {
                     sorvete.setSaborSorvete(sorveteAtualizado.getSaborSorvete());
                     sorvete.setMarcaSorvete(sorveteAtualizado.getMarcaSorvete());
-                    sorvete.setValorSorvete(sorveteAtualizado.getValorSorvete());
+                    sorvete.setEstoqueAtual(sorveteAtualizado.getEstoqueAtual());
+                    sorvete.setDataValidade(sorveteAtualizado.getDataValidade());
+                    sorvete.setAtivo(sorveteAtualizado.getAtivo());
                     return sorveteRepository.save(sorvete);
-                }).orElseThrow(() -> new RuntimeException("Sorvete não encontrado!"));
+                }).orElseThrow(() -> new RuntimeException("Não foi possível realizar a alteração. Tente novamente."));
     }
 }
