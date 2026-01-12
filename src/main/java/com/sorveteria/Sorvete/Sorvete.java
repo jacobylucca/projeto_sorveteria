@@ -21,10 +21,10 @@ public class Sorvete{
 
     private Long ID;
 
-    private String saborSorvete; //
-    private String marcaSorvete; //
+    private String saborSorvete; 
+    private String marcaSorvete; 
 
-    private Double valorVenda; //
+    private Double valorVenda; 
     private Double valorCusto;
 
     private LocalDate dataValidade;
