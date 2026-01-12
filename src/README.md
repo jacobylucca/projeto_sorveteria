@@ -2,10 +2,10 @@
 
 Uma API REST desenvolvida para o gerenciamento técnico de inventário e catálogo de produtos para o setor de gelataria. Este sistema foca no controle rigoroso de estoque, precificação e rastreabilidade de produtos.
 
-## 💻 Sobre o Projeto
+##  Sobre o Projeto
 O objetivo deste sistema é fornecer uma interface robusta para operações de back-end, permitindo a manutenção de dados sensíveis como datas de validade, custos de produção e níveis de estoque em tempo real.
 
-## 🛠️ Tecnologias e Ferramentas
+##  Tecnologias e Ferramentas
 * **Linguagem:** Java 21 (ou a versão que você estiver usando)
 * **Framework:** Spring Boot 3
 * **Persistência de Dados:** Spring Data JPA / Hibernate
@@ -14,7 +14,7 @@ O objetivo deste sistema é fornecer uma interface robusta para operações de b
 * **Produtividade:** Lombok
 * **Testes de API:** Postman
 
-## 📊 Estrutura de Dados (Model)
+##  Estrutura de Dados (Model)
 O sistema gerencia as seguintes informações técnicas:
 - **ID:** Identificador único (Long)
 - **Sabor/Descrição:** Identificação do produto
@@ -24,7 +24,7 @@ O sistema gerencia as seguintes informações técnicas:
 - **Validade:** Controle de perecíveis (LocalDate)
 - **Auditoria:** Data e hora de criação automática (LocalDateTime)
 
-## 📡 Endpoints Principais
+##  Endpoints Principais
 - `GET /sorvete` - Lista todos os produtos cadastrados.
 - `POST /sorvete` - Registra um novo item no sistema.
 - `PUT /sorvete/{id}` - Atualiza dados técnicos de um item existente.
