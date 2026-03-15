@@ -8,35 +8,27 @@ import java.util.List;
 @RestController
 @RequestMapping("/sorveteria")
 @RequiredArgsConstructor
-
 public class SorveteController {
 
-    private final SorveteRepository sorveteRepository;
+    private final SorveteService sorveteService;
 
     @GetMapping
-    public List<Sorvete> listar(){
-
-        return sorveteRepository.findAll();
+    public List<Sorvete> listar() {
+        return sorveteService.listar();
     }
+
     @PostMapping
-    public Sorvete salvar(@RequestBody Sorvete sorvete){
-
-        return sorveteRepository.save(sorvete);
+    public Sorvete salvar(@RequestBody Sorvete sorvete) {
+        return sorveteService.salvar(sorvete);
     }
+
     @DeleteMapping("/{id}")
     public void excluir(@PathVariable Long id) {
-        sorveteRepository.deleteById(id);
+        sorveteService.excluir(id);
     }
+
     @PutMapping("/{id}")
     public Sorvete atualizar(@PathVariable Long id, @RequestBody Sorvete sorveteAtualizado) {
-        return sorveteRepository.findById(id)
-                .map(sorvete -> {
-                    sorvete.setSaborSorvete(sorveteAtualizado.getSaborSorvete());
-                    sorvete.setMarcaSorvete(sorveteAtualizado.getMarcaSorvete());
-                    sorvete.setEstoqueAtual(sorveteAtualizado.getEstoqueAtual());
-                    sorvete.setDataValidade(sorveteAtualizado.getDataValidade());
-                    sorvete.setAtivo(sorveteAtualizado.getAtivo());
-                    return sorveteRepository.save(sorvete);
-                }).orElseThrow(() -> new RuntimeException("Não foi possível realizar a alteração. Tente novamente."));
+        return sorveteService.atualizar(id, sorveteAtualizado);
     }
 }
